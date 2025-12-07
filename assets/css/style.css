@@ -892,11 +892,139 @@ body.nav-active { overflow: hidden; }
 
 .hero .slider-item.active .section-subtitle { animation-delay: 500ms; }
 
+.hero .slider-item.active .hero-company-name { animation-delay: 750ms; }
+
 .hero .slider-item.active .hero-title { animation-delay: 1000ms; }
 
 .hero .slider-item.active .hero-text { animation-delay: 1.5s; }
 
 .hero .slider-item.active .btn { animation-delay: 2s; }
+
+
+/*-----------------------------------*\
+  #HERO COMPANY NAME
+\*-----------------------------------*/
+
+.hero-company-name {
+  margin-block: 15px 10px;
+  position: relative;
+}
+
+.company-name-text {
+  display: inline-block;
+  font-family: var(--fontFamily-forum);
+  font-size: clamp(1.4rem, 2.5vw, 2.4rem);
+  font-weight: var(--weight-regular);
+  color: var(--gold-crayola);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 8px 20px;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.1) 20%,
+    rgba(212, 175, 55, 0.15) 50%,
+    rgba(212, 175, 55, 0.1) 80%,
+    transparent 100%
+  );
+  border-left: 2px solid var(--gold-crayola);
+  border-right: 2px solid var(--gold-crayola);
+}
+
+.company-name-text::before,
+.company-name-text::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: var(--gold-crayola);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.company-name-text::before {
+  left: -35px;
+}
+
+.company-name-text::after {
+  right: -35px;
+}
+
+.company-name-line {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold-crayola) 20%,
+    var(--gold-crayola) 80%,
+    transparent
+  );
+  margin: 12px auto 0;
+  position: relative;
+}
+
+.company-name-line::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--gold-crayola);
+  background: var(--smoky-black-1);
+}
+
+/* Shimmer animation for company name */
+.hero .slider-item.active .company-name-text {
+  animation: shimmer 3s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    text-shadow: 
+      0 0 20px rgba(212, 175, 55, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    text-shadow: 
+      0 0 30px rgba(212, 175, 55, 0.7),
+      0 0 60px rgba(212, 175, 55, 0.3),
+      0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 575px) {
+  .company-name-text {
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    padding: 6px 12px;
+  }
+  
+  .company-name-text::before,
+  .company-name-text::after {
+    width: 20px;
+  }
+  
+  .company-name-text::before {
+    left: -25px;
+  }
+  
+  .company-name-text::after {
+    right: -25px;
+  }
+  
+  .company-name-line {
+    width: 80px;
+  }
+}
 
 
 
